@@ -12,9 +12,9 @@ export const todosSlice = createSlice({
     }],
   },
   reducers: {
-    createTodo: state => {
+    createTodo: (state, action) => {
       state.value = [...state.value, {
-        text: 'New Todo',
+        text: action.payload,
         isCompleted: false,
       }];
     },
