@@ -5,10 +5,12 @@ import { Provider } from 'react-redux';
 import { todosSlice } from './todosSlice';
 import App from './App.jsx'
 import './index.css'
+import { loadingSlice } from './loadingSlice.js';
 
 const store = configureStore({
   reducer: {
     todos: todosSlice.reducer,
+    loading: loadingSlice.reducer,
   },
 });
 
