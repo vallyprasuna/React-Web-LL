@@ -30,3 +30,13 @@ export const createTodo = (newTodoText) => async (dispatch, getState) => {
     console.log(e);
   }
 }
+
+export const deleteTodo = (todoId) => async (dispatch, getState) => {
+  try {
+    await axios.delete('/api/todos/' + todoId);
+    const updatedTodos = getState().todos.value.filter(t => t.id !== todoId);
+    dispatch(todosUpdated(updatedTodos));
+  } catch (e) {
+    console.log(e);
+  }
+}
