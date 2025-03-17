@@ -1,11 +1,14 @@
-export default function TodoListItem({item, onCompleteClicked, onDeleteClicked}) {
+import { useContext } from 'react';
+import { ListContext } from './ToDoContextProvider';
+export default function TodoListItem({item}) {
+    const { onDelete, onComplete } = useContext(ListContext);
     return (
         <div>
           <h4>{item.name}</h4>
           { 
             item.isComplete ? 
-            <button onClick={() => onDeleteClicked(item.name)}>Delete</button> :
-            <button onClick={() => onCompleteClicked(item.name)}>Mark as Complete</button>
+            <button onClick={() => onDelete(item.name)}>Delete</button> :
+            <button onClick={() => onComplete(item.name)}>Mark as Complete</button>
             }
         </div>
     )

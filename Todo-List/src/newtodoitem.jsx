@@ -1,5 +1,8 @@
-import { useState } from 'react';
-export default function NewToDoItem({onCreate}) {
+import { useState, useContext } from 'react';
+import { ListContext } from './ToDoContextProvider';
+
+export default function NewToDoItem() {
+    const { onCreate } = useContext(ListContext);
     const [inputText, setInputText] = useState("");
     return (
         <div>
